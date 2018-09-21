@@ -78,4 +78,4 @@ class Configuration(models.Model):
 class Activity2(Activity):
     class Meta:
         verbose_name = 'Activity two'
-        verbose_name_plural = 'Activities two'
+        verbose_name_plural = 'Activitys two'
