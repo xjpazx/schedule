@@ -22,12 +22,18 @@ class AdminActivity(admin.ModelAdmin):
 
     def formfield_for_manytomany(self, db_field, request=None, **kwargs):
         user = CuserMiddleware.get_user()
-        configuration = user.groups.all().first().configuration_set.all().first()
-        if db_field.name == 'trucks':
-            kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.activity_filter_one == 2 else SortedFilteredSelectMultiple()
-        elif 'employees' == db_field.name:
-            kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.employees_filter_one == 2 else SortedFilteredSelectMultiple()
-        return super(AdminActivity, self).formfield_for_manytomany(db_field, request, **kwargs)
+        if user.groups.all().first():
+            if user.groups.all().first().configuration_set.all().first():
+                configuration = user.groups.all().first().configuration_set.all().first()
+                if db_field.name == 'trucks':
+                    kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.activity_filter_one == 2 else SortedFilteredSelectMultiple()
+                elif 'employees' == db_field.name:
+                    kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.employees_filter_one == 2 else SortedFilteredSelectMultiple()
+                return super(AdminActivity, self).formfield_for_manytomany(db_field, request, **kwargs)
+            else:
+                if db_field.name in ['trucks', 'employees']:
+                    kwargs['widget'] = apply_select2(forms.SelectMultiple)
+                return super(AdminActivity, self).formfield_for_manytomany(db_field, request, **kwargs)
 
 
 @admin.register(Activity2)
@@ -44,13 +50,18 @@ class AdminActivity2(admin.ModelAdmin):
 
     def formfield_for_manytomany(self, db_field, request=None, **kwargs):
         user = CuserMiddleware.get_user()
-        configuration = user.groups.all().first().configuration_set.all().first()
-        if db_field.name == 'trucks':
-            kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.activity_filter_two == 2 else SortedFilteredSelectMultiple()
-        elif 'employees' == db_field.name:
-            kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.employees_filter_two == 2 else SortedFilteredSelectMultiple()
-        return super(AdminActivity2, self).formfield_for_manytomany(db_field, request, **kwargs)
-
+        if user.groups.all().first():
+            if user.groups.all().first().configuration_set.all().first():
+                configuration = user.groups.all().first().configuration_set.all().first()
+                if db_field.name == 'trucks':
+                    kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.activity_filter_one == 2 else SortedFilteredSelectMultiple()
+                elif 'employees' == db_field.name:
+                    kwargs['widget'] = apply_select2(forms.SelectMultiple) if configuration.employees_filter_one == 2 else SortedFilteredSelectMultiple()
+                return super(AdminActivity, self).formfield_for_manytomany(db_field, request, **kwargs)
+            else:
+                if db_field.name in ['trucks', 'employees']:
+                    kwargs['widget'] = apply_select2(forms.SelectMultiple)
+                return super(AdminActivity, self).formfield_for_manytomany(db_field, request, **kwargs)
 
 
 @admin.register(Employee)
