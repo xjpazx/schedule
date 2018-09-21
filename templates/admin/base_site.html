@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+{% endblock %}
+{% block title %}{{ title }} | {{ site_title|default:_('Stuart Event Rentals') }}{% endblock %}
+
+{% block branding %}
+
+    <img src="//92167-259657-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2015/08/Stuart-Event-Rentals-Logo-Interior-Pages1.jpg">
+{% endblock %}
+
+
+{% block userlinks %}
+    {% if site_url %}
+        <a href="{{ site_url }}">View site</a> /
+    {% endif %}
+    {% if user.is_active and user.is_staff %}
+        {% url 'django-admindocs-docroot' as docsroot %}
+        {% if docsroot %}
+            <a href="{{ docsroot }}">Documentation'</a> /
+        {% endif %}
+    {% endif %}
+    {% if user.can_change_password %}
+        <a href="{% url 'admin:password_change' %}">Change password</a> /
+    {% endif %}
+    <a href="{% url 'admin:logout' %}">Log out</a>
+{% endblock %}
+
+
+{% block nav-global %}
+
+{% endblock %}
