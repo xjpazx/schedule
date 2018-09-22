@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_schedule',
-        #'USER': 'postgres',
-        'USER': 'admin_schedule',
-        #'PASSWORD': '123456',
-        'PASSWORD': 'schedule123456',
+        'NAME': 'schedule',
+        'USER': 'postgres',
+       # 'USER': 'admin_schedule',
+        'PASSWORD': '123456',
+        #'PASSWORD': 'schedule123456',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -137,10 +137,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ubuntu/pro_schedule/schedule/static/'
+STATIC_ROOT = '/var/www/schedule/static/'
 MEDIA_URL = '/media/'
-HOST_MEDIA = '/home/ubuntu/pro_schedule/schedule/media/'
-MEDIA_ROOT = '/home/ubuntu/pro_schedule/schedule/media/'
+HOST_MEDIA = '/var/www/schedule/media/'
+MEDIA_ROOT = '/var/www/schedule/media/'
 LOGOUT_URL = "/accounts/login/"
 """
 STATIC_URL = '/static/'
