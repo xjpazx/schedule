@@ -47,14 +47,14 @@ class Employee(User):
     identification = models.CharField(max_length=45)
 
     def __str__(self):
-        return f'{ self.first_name } { self.last_name }'
+        return '{} {}'.format(self.first_name, self.last_name)
 
 
 class Truck(models.Model):
     code = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'Truck-{ self.code }'
+        return '{}'.format(self.code)
 
 
 class Configuration(models.Model):
