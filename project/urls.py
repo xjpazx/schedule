@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import include
 from django.conf.urls.static import static
 admin.site.index_template = 'project/admin/base_site.html'
-admin.site.login_template = 'project/admin/base_site.html'
+admin.site.login_template = 'project/admin/login.html'
 admin.autodiscover()
 urlpatterns = [
     url(r'^select2/', include('django_select2.urls')),
