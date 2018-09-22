@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'project',
     'schedule',
     'django_select2',
     'easy_select2',
@@ -90,7 +90,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_schedule',
+        #'USER': 'postgres',
         'USER': 'admin_schedule',
+        #'PASSWORD': '123456',
         'PASSWORD': 'schedule123456',
         'HOST': 'localhost',
         'PORT': '5432',
@@ -133,10 +135,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+"""
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/pro_schedule/schedule/static/'
 MEDIA_URL = '/media/'
 HOST_MEDIA = '/home/ubuntu/pro_schedule/schedule/media/'
 MEDIA_ROOT = '/home/ubuntu/pro_schedule/schedule/media/'
+LOGOUT_URL = "/accounts/login/"
+"""
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/dark/proyectos/schedule/static/'
+MEDIA_URL = '/media/'
+HOST_MEDIA = '/home/dark/proyectos/schedule/media/'
+MEDIA_ROOT = '/home/dark/proyectos/schedule/media/'
 LOGOUT_URL = "/accounts/login/"
