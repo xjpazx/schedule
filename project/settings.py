@@ -137,3 +137,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = '/home/ubuntu/pro_schedule/schedule/static/'
+MEDIA_URL = '/media/'
+HOST_MEDIA = '/home/ubuntu/pro_schedule/schedule/media/'
+MEDIA_ROOT = '/home/ubuntu/pro_schedule/schedule/media/'
+LOGOUT_URL = "/accounts/login/"
