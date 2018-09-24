@@ -23,8 +23,8 @@ class ActivityForm(forms.ModelForm):
 
     def clean(self):
         data = self.cleaned_data
-        start_time = data['start_time']
         try:
+            start_time = data['start_time']
             end_time = data['end_time']
             if start_time > end_time:
                 raise ValidationError('The start time must be less than the end time')
