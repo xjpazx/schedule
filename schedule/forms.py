@@ -26,6 +26,8 @@ class ActivityForm(forms.ModelForm):
         try:
             start_time = data['start_time']
             end_time = data['end_time']
+            print(start_time)
+            print(end_time)
 
         except:
             if start_time > end_time:
