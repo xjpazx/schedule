@@ -28,11 +28,9 @@ class ActivityForm(forms.ModelForm):
             end_time = data['end_time']
 
         except:
-            if start_time > end_time:
-                raise ValidationError('The start time must be less than the end time')
-            else:
-                raise ValidationError('The start time and the end time must have the following format HH:MM')
-
+            raise ValidationError('The start time and the end time must have the following format HH:MM')
+        if start_time > end_time:
+            raise ValidationError('The start time must be less than the end time')
 
 class VistaFormAdmin(forms.ModelForm):
     class Meta:
