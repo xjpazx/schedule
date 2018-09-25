@@ -26,10 +26,12 @@ class ActivityForm(forms.ModelForm):
         try:
             start_time = data['start_time']
             end_time = data['end_time']
+
+        except:
             if start_time > end_time:
                 raise ValidationError('The start time must be less than the end time')
-        except:
-            raise ValidationError('The start time and the end time must have the following format HH:MM')
+            else:
+                raise ValidationError('The start time and the end time must have the following format HH:MM')
         return self.cleaned_data
 
 
