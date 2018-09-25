@@ -21,6 +21,7 @@ class ActivityForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ActivityForm, self).__init__(*args, **kwargs)
         self.fields['employees'].queryset = models.Employee.objects.all().order_by('first_name')
+        self.fields['trucks'].queryset = models.Truck.objects.all().order_by('code')
 
     def clean(self):
         data = self.cleaned_data
