@@ -11,12 +11,15 @@ from django import forms
 @admin.register(Activity)
 class AdminActivity(admin.ModelAdmin):
     list_display = (
-        'trucks_',
-        'employees_',
         'description_Activity',
         'time',
+        'trucks_',
+        'employees_',
+
+
 
     )
+    list_display_links = ('description_Activity','trucks_')
     search_fields = ['description_Activity', 'description_time']
     form = forms_.ActivityForm
 
@@ -34,6 +37,9 @@ class AdminActivity(admin.ModelAdmin):
                 if db_field.name in ['trucks', 'employees']:
                     kwargs['widget'] = apply_select2(forms.SelectMultiple)
                 return super(AdminActivity, self).formfield_for_manytomany(db_field, request, **kwargs)
+
+
+
 
 
 @admin.register(Activity2)

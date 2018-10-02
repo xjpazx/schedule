@@ -12,10 +12,8 @@ class ActivityForm(forms.ModelForm):
             'description_Activity',
             "date",
             'start_time',
-            'end_time',
-            'description_time',
-            'employees',
             'trucks',
+            'employees',
         ]
 
     def __init__(self, *args, **kwargs):
@@ -27,14 +25,13 @@ class ActivityForm(forms.ModelForm):
         data = self.cleaned_data
         try:
             start_time = data['start_time']
-            end_time = data['end_time']
-
         except:
             raise ValidationError('The start time and the end time must have the following format HH:MM')
-        if start_time > end_time:
-            raise ValidationError('The start time must be less than the end time')
+
 
 class VistaFormAdmin(forms.ModelForm):
     class Meta:
         model = models.Vista
         fields = ['name']
+
+#class Duplicate(forms.Form)

@@ -21,11 +21,9 @@ class Activity(models.Model):
     vista = models.ForeignKey(Vista, on_delete=models.CASCADE, null=True, blank=True)
     description_Activity = models.CharField(max_length=100)
     date = models.DateField()
-    start_time = models.TimeField(blank=True, help_text='The format is HH:MM')
-    end_time = models.TimeField(blank=True, help_text='The format is HH:MM')
-    description_time = models.CharField(max_length=100, blank=True)
-    employees = models.ManyToManyField('Employee', related_name='activities')
-    trucks = models.ManyToManyField('Truck', related_name='activities')
+    start_time = models.TimeField(blank=True, null=True, help_text='The format is HH:MM')
+    employees = models.ManyToManyField('Employee', related_name='activities', null=True, blank=True)
+    trucks = models.ManyToManyField('Truck', related_name='activities', null=True, blank=True)
 
     def __str__(self):
         return self.description_Activity
@@ -39,7 +37,7 @@ class Activity(models.Model):
         return ", ".join([employee.__str__() for employee in employees])
 
     def time(self):
-        return "{0}\n{1}\n{2}".format(self.start_time, self.end_time, self.description_time)
+        return "{0}".format(self.start_time)
 
 
 class Employee(User):
