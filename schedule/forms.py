@@ -16,6 +16,9 @@ class ActivityForm(forms.ModelForm):
             'employees',
         ]
 
+    class Media:
+         js = ('/static/project/activity.js',)
+
     def __init__(self, *args, **kwargs):
         super(ActivityForm, self).__init__(*args, **kwargs)
         self.fields['employees'].queryset = models.Employee.objects.all().order_by('first_name')

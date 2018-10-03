@@ -135,7 +135,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-"""
+
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/schedule/static/'
 MEDIA_URL = '/media/'
@@ -149,4 +149,4 @@ MEDIA_URL = '/media/'
 HOST_MEDIA = '//home/joseph/joseph/schedule/media/'
 MEDIA_ROOT = '//home/joseph/joseph/schedule/media/'
 LOGOUT_URL = "/accounts/login/"
-
+"""
