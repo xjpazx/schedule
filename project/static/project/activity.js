@@ -24,7 +24,7 @@ btn_duplicate.addEventListener('click', function() {
 $(function () {
    $('.submit-row').prepend('<input type="button" value=" Save and Duplicate" name="_duplicate" class="send_activity">');
     $('.send_activity').click(function (event) {
-        var form = $('form:first').serialize();
+        var form = $('form:first    ').serialize();
         $('.errornote,.errorlist').remove();
         $.each($('.errors'), function(){$(this).removeClass('errors');});
         $.ajax({
@@ -46,9 +46,23 @@ $(function () {
                     }
                 }
                 else{
+                    for(var nodo in OrderedSelectBox.cache){
+                        if(nodo.includes("_to")){
+                            var nodo_name = nodo.replace("_to", "_from");
+                            var size = OrderedSelectBox.cache[nodo].length;
+                            for(var i =0;i < size; i++){
+                                OrderedSelectBox.cache[nodo_name].push(OrderedSelectBox.cache[nodo].pop());
+                            }
+                            OrderedSelectBox.redisplay(nodo_name);
+                            OrderedSelectBox.redisplay(nodo);
+                        }
+                    }
                     alert("Activity Saved");
                 }
             }
         })
+        $('body,html').stop(true,true).animate({
+                        scrollTop: $('#content').offset().top
+                    },1000);
     })
 });
