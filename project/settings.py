@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'schedule',
         'USER': 'root',
        # 'USER': 'admin_schedule',
-        'PASSWORD': 'password',
+        'PASSWORD': 'root',
         #'PASSWORD': 'schedule123456',
         'HOST': 'localhost',
         'PORT': '5432',

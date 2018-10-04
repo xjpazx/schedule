@@ -22,7 +22,7 @@ btn_duplicate.addEventListener('click', function() {
 
 */
 $(function () {
-   $('.submit-row').prepend('<input type="button" value="Duplicate" name="_duplicate" class="send_activity">');
+   $('.submit-row').prepend('<input type="button" value=" Save and Duplicate" name="_duplicate" class="send_activity">');
     $('.send_activity').click(function (event) {
         var form = $('form:first').serialize();
         $('.errornote,.errorlist').remove();
@@ -44,6 +44,9 @@ $(function () {
                             nodo.prepend('<ul class="errorlist"><li>This field is required.</li></ul>');
                         }
                     }
+                }
+                else{
+                    alert("Activity Saved");
                 }
             }
         })
