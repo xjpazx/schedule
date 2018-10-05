@@ -10,18 +10,21 @@ from django import forms
 
 @admin.register(Activity)
 class AdminActivity(admin.ModelAdmin):
+
     list_display = (
+        'date',
         'description_Activity',
         'time',
         'trucks_',
         'employees_',
-
-
-
     )
     list_display_links = ('description_Activity','trucks_')
-    search_fields = ['description_Activity', 'description_time']
+    search_fields = ['description_Activity']
     form = forms_.ActivityForm
+
+    def get_queryset(self, request):
+        query = super(AdminActivity, self).get_queryset(request)
+        return query.order_by('date__year', 'date__month', '-date__day')
 
     def formfield_for_manytomany(self, db_field, request=None, **kwargs):
         user = CuserMiddleware.get_user()
@@ -42,6 +45,8 @@ class AdminActivity(admin.ModelAdmin):
 
 
 
+
+
 @admin.register(Activity2)
 class AdminActivity2(admin.ModelAdmin):
     list_display = (
@@ -51,7 +56,7 @@ class AdminActivity2(admin.ModelAdmin):
         'time',
 
     )
-    search_fields = ['description_Activity', 'description_time']
+    search_fields = ['description_Activity']
     form = forms_.ActivityForm
 
     def formfield_for_manytomany(self, db_field, request=None, **kwargs):
