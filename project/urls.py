@@ -22,6 +22,7 @@ admin.site.index_template = 'admin/my_custom_index.html'
 admin.autodiscover()
 urlpatterns = [
     url(r'^select2/', include('django_select2.urls')),
+    url(r'^api/v1/', include('schedule.urls')),
     url(r'^', admin.site.urls),
 ]  +  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
