@@ -45,6 +45,12 @@ class Activity(models.Model):
 class Employee(User):
     can_change_password = models.BooleanField(default=False, blank=True)
     identification = models.CharField(max_length=45)
+    states_fields=(
+        ('OFF' , 'OFF'),
+        ('NS/NC' , 'NS/NC'),
+        ('SICK' , 'SICK')
+    )
+    states=models.TextField(choices=states_fields,blank=True,)
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)

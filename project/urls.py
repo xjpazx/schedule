@@ -18,7 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import include
 from django.conf.urls.static import static
-admin.site.index_template = 'admin/my_custom_index.html'
+#admin.site.index_template = 'admin/my_custom_index.html'
 admin.autodiscover()
 urlpatterns = [
     url(r'^select2/', include('django_select2.urls')),

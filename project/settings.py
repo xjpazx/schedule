@@ -96,9 +96,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'schedule',
-        'USER': 'postgres',
+        'USER': 'test',
        # 'USER': 'admin_schedule',
-        'PASSWORD': '123456',
+        'PASSWORD': '123456789',
         #'PASSWORD': 'schedule123456',
         'HOST': 'localhost',
         'PORT': '5432',
