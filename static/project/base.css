@@ -1,0 +1,84 @@
+body, html {
+    font-size: 100%;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+
+#header{
+    background-color: white;
+}
+a{
+    color: #331935;
+}
+#user-tools {
+    color: #331935;
+}
+
+#user-tools a {
+    color: #331935 !important;
+}
+
+#content h1{
+    color:#331935;
+    text-transform: uppercase;
+}
+caption{
+    color: white !important;
+    background-color: #331935!important;
+}
+#header {
+    padding-bottom:70px;
+}
+.breadcrumbs{
+    background-color: #331935 !important;
+}
+#recent-actions-module{
+    display:none;
+}
+.addlink li{
+
+    color: #331935 !important;
+}
+li> .addlink:hover{
+    background-color: #331935 !important
+}
+.submit-row >input{
+    background-color: #331935 !important;
+}
+#changelist-filter > h2{
+    background-color: #331935;
+}
+.selector-chosen > h2{
+    background-color: #331935 !important;
+}
+.selector-available > h2{
+    color: white !important ;
+    background-color: #331935 !important;
+}
+.datetimeshortcuts > a{
+    color: #331935 !important;
+}
+tbody a{
+    color: #331935 !important;
+
+}
+#field-date{
+    position: absolute !important;
+}
+
+/*.module caption, .inline-group h2*/
+/*a.addlink:hover{*/
+    /*background-color: #331935!important;*/
+/*}*/
+/*.action-select{*/
+    /*background-color: #330035;*/
+/*}*/
+/*div.breadcrumbs{*/
+    /*background-color:#331935;*/
+/*}*/
+/*a{*/
+    /*color : #330035!important;*/
+/*}*/
+/*caption a{*/
+    /*color: white;*/
+/*}*/
