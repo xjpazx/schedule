@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8cyg7t8nz3&^_&)!w9p#-9qx4tpd6cz#ta%k*#6s1g+6-a6^gj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -144,9 +144,9 @@ MEDIA_ROOT = '/var/www/schedule/media/'
 LOGOUT_URL = "/accounts/login/"
 """
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/joseph/joseph/schedule/project/static/'
+STATIC_ROOT = '/home/joseph/proyectos/schedule/project/static/'
 MEDIA_URL = '/media/'
-HOST_MEDIA = '//home/joseph/joseph/schedule/media/'
-MEDIA_ROOT = '//home/joseph/joseph/schedule/media/'
+HOST_MEDIA = '//home/joseph/proyectos/schedule/media/'
+MEDIA_ROOT = '//home/joseph/proyectos/schedule/media/'
 LOGOUT_URL = "/accounts/login/"
 """
