@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'easy_select2',
     'sortedm2m_filter_horizontal_widget',
     'cuser',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-'cuser.middleware.CuserMiddleware',
+    'cuser.middleware.CuserMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -89,10 +90,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'schedule',
+        'NAME': 'schedule2',
         'USER': 'root',
        # 'USER': 'admin_schedule',
-        'PASSWORD': 'password',
+        'PASSWORD': 'root',
         #'PASSWORD': 'schedule123456',
         'HOST': 'localhost',
         'PORT': '5432',
@@ -135,6 +136,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+"""
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/schedule/static/'
@@ -149,4 +151,3 @@ MEDIA_URL = '/media/'
 HOST_MEDIA = '//home/joseph/proyectos/schedule/media/'
 MEDIA_ROOT = '//home/joseph/proyectos/schedule/media/'
 LOGOUT_URL = "/accounts/login/"
-"""

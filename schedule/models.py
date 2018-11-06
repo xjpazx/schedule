@@ -38,7 +38,7 @@ class Activity(models.Model):
     end_date = models.DateField()
     start_time = models.TimeField(blank=True, null=True, help_text='The format is HH:MM')
     end_time = models.TimeField(blank=True, null=True, help_text='The format is HH:MM')
-    state=models.IntegerField(max_length=20,choices=STATE,default='To Start')
+    state=models.IntegerField(choices=STATE,default=1)
 
     def __str__(self):
         return self.description_Activity
@@ -81,7 +81,7 @@ class Assignment(models.Model):
     activity_fk = models.ForeignKey(Activity, null=True, on_delete=models.CASCADE)
     employees = models.ManyToManyField('Employee', related_name='activities', blank=True)
     trucks = models.ManyToManyField('Truck', related_name='activities', blank=True)
-    state = models.IntegerField(max_length=20, choices=STATE, default='To Start')
+    state = models.IntegerField(choices=STATE, default=1)
 
     def __str__(self):
         return '{}'.format(self.code)
