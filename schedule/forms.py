@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 
 from schedule import models
 from django_select2.forms import *
+import datetime
 
 
 class ActivityForm(forms.ModelForm):
@@ -55,11 +56,18 @@ class AssignmentForm(forms.ModelForm):
 
         ]
 
-    # class Media:
-    #      js = ('/static/project/activity.js',)
+    class Media:
+        js = ('/static/project/assignament.js',)
 
     def __init__(self, *args, **kwargs):
         super(AssignmentForm, self).__init__(*args, **kwargs)
         self.fields['employees'].queryset = models.Employee.objects.all().order_by('first_name')
         self.fields['trucks'].queryset = models.Truck.objects.all().order_by('code')
 
+    def valedate_employe(self,valor):
+        fechas = models.Activity.objects.filter(description_Activity=valor).values('start_date')[0]["start_date"].strftime('%Y-%m-%d')
+        asignaciones=models.Assignment.objects.filter(activity_fk__start_date=fechas)
+        l=[]
+        for a in asignaciones:
+            l.append(a.employees_())
+        return l

@@ -84,7 +84,7 @@ class Assignment(models.Model):
     state = models.IntegerField(choices=STATE, default=1)
 
     def __str__(self):
-        return '{}'.format(self.code)
+        return '{} {}'.format(self.state, self.activity_fk)
 
     def trucks_(self):
         trucks = self.trucks.all()
