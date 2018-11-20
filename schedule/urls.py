@@ -14,5 +14,6 @@ routes.register('trucks', TruckView)
 
 urlpatterns = [
     path('ws/schedule/', views.ScheduleView.as_view(), name='ws_schedule'),
+    path('as/schedule/', views.AssignView.as_view(), name='as_schedule'),
     path('', include(routes.urls)),
 ]

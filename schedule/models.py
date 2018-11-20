@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User, Group
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -40,15 +41,30 @@ class Activity(models.Model):
     end_time = models.TimeField(blank=True, null=True, help_text='The format is HH:MM')
     state=models.IntegerField(choices=STATE,default=1)
 
+    class Meta:
+        unique_together =('description_Activity','start_date')
+
     def __str__(self):
         return self.description_Activity
 
     def time(self):
         return "{0}".format(self.start_time)
 
+    def clean(self):
+        if self.start_date > self.end_date:
+            raise ValidationError('la fecha final es menor a la inicial')
+        super().clean()
+
+    def save(self):
+        if self.start_date > self.end_date:
+
+            print("sdadasddadasd")
+        else:
+            super().save()
+
 
 class Employee(User):
-    area_fk=models.ForeignKey(Area, null=True, on_delete=models.CASCADE)
+    area_fk=models.ForeignKey(Area, null=True, on_delete=models.CASCADE,)
     STATE = (
         ('AVAILABLE', 'AVAILABLE'),
         ('NOT AVAILABLE', 'NOT AVAILABLE'),

@@ -36,6 +36,9 @@ class ActivitySerializer(serializers.ModelSerializer):
         'state',
     )
 
+    # def validate(self, attrs):
+    #     return super().validate(attrs)
+
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
