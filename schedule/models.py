@@ -27,7 +27,7 @@ class Area(models.Model):
 
 
 class Activity(models.Model):
-    area_fk=models.ForeignKey(Area, blank=True, null=True, on_delete=models.CASCADE)
+    area_fk=models.ForeignKey(Area, blank=True, null=True, on_delete=models.CASCADE,)
     STATE = (
         (1, 'To start'),
         (2, 'In progress'),

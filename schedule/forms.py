@@ -31,13 +31,12 @@ class ActivityForm(forms.ModelForm):
         super(ActivityForm, self).__init__(*args, **kwargs)
         if (CuserMiddleware.get_user().is_superuser!=True):
             id_area=CuserMiddleware.get_user().employee.area_fk_id
-            self.fields['area_fk'].queryset = models.Area.objects.filter(id=id_area)
+            self.fields['area_fk'].initial = models.Area.objects.filter(id=id_area)
 
 
 
     def clean(self):
         data = self.cleaned_data
-        
         try:
             start_date = data['start_date']
             end_date = data['end_date']
@@ -46,6 +45,7 @@ class ActivityForm(forms.ModelForm):
         if start_date > end_date:
              raise ValidationError('la fecha final es menor a la inicial')
         return data
+
 
 
 class VistaFormAdmin(forms.ModelForm):
@@ -75,6 +75,7 @@ class AssignmentForm(forms.ModelForm):
         super(AssignmentForm, self).__init__(*args, **kwargs)
         self.fields['employees'].queryset = models.Employee.objects.all().order_by('first_name')
         self.fields['trucks'].queryset = models.Truck.objects.all().order_by('code')
+
 
 
 def valedate_employe(valor):
